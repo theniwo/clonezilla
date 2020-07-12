@@ -9,7 +9,7 @@ services:
     image: theniwo/clonezilla:latest
     container_name: clonezilla
     hostname: clonezilla
-    mem_limit: "512M"
+    mem_limit: "128M"
     restart: unless-stopped
     privileged: true
     ports:
