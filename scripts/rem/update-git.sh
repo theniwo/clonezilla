@@ -5,12 +5,8 @@ CONTAINERNAME=clonezilla
 DOCKERREPO=theniwo
 DOCKERIMAGE=clonezilla
 DOCKERTAG=latest
-DIR=/root/Settings/Linux/scripts/docker
-PARAMETER="$1"
 
-
-cd $DIR/$CONTAINERNAME
-
+cd /root/Settings/Linux/scripts/docker/$CONTAINERNAME
 function main(){
 	logger -i -t $CONTAINERNAME "Adding files"
 	git add .
@@ -37,9 +33,4 @@ function main(){
 	    logger -i -t $CONTAINERNAME "Pushing to git unsuccessful"
 	  fi
 }
-
-if [[ $PARAMETER == "--force" ]] || [[ $PARAMETER == "-f" ]]; then
-  echo "Forcing Commit"
-  date +%Y%m%d%H%M%S > $DIR/$CONTAINERNAME/CHANGEFILE
-fi
 main

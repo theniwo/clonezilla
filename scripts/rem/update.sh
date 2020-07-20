@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-FRIENDLYNAME=Clonezilla
-CONTAINERNAME=clonezilla
-DOCKERIMAGE=clonezilla
+FRIENDLYNAME=Gobuntu
+CONTAINERNAME=gobuntu
 DOCKERREPO=theniwo
+DOCKERIMAGE=gobuntu
 DOCKERTAG=latest
-DIR=/root/Settings/Linux/scripts/docker
-PARAMETER="$2"
 
 function update-git(){
 	echo "Adding all files to HEAD"
@@ -29,15 +27,9 @@ function update-docker(){
 	fi
 }
 
-
-
 var="$1"
 case "$var" in
    git)
-	if [[ $PARAMETER == "--force" ]] || [[ $PARAMETER == "-f" ]]; then
-	  echo "Forcing Commit"
-	  date +%Y%m%d%H%M%S > $DIR/$CONTAINERNAME/CHANGEFILE
-	fi
    	update-git
         ;;
    docker)

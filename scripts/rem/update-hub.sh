@@ -4,9 +4,7 @@ CONTAINERNAME=clonezilla
 DOCKERREPO=theniwo
 DOCKERIMAGE=clonezilla
 DOCKERTAG=latest
-DIR=/root/Settings/Linux/scripts/docker
-
-cd $DIR/$CONTAINERNAME
+cd /root/Settings/Linux/scripts/docker/$CONTAINERNAME
 
 	echo "Committing to docker hub"
 	docker commit $(docker inspect --format='{{.ID}}' $CONTAINERNAME) $DOCKERREPO/$DOCKERIMAGE:$DOCKERTAG && docker push $DOCKERREPO/$DOCKERIMAGE:$DOCKERTAG
