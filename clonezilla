@@ -1,0 +1,13 @@
+docker run -d \
+	--name clonezilla \
+	--hostname clonezilla \
+	--restart unless-stopped \
+	--memory 128M \
+	--privileged=true \
+	-e TERM=xterm \
+	-e TZ=Europe/Berlin \
+	-v /dev:/dev \
+	-v clonezilla_data:/root \
+	-v clonezilla_logs:/var/log \
+	-v /nfs/MyCloud/DATA/BACKUP/clonezilla:/home/partimag:shared \
+	theniwo/clonezilla:latest

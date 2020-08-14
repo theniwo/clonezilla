@@ -8,6 +8,7 @@ I run a set of Raspberry PIs and I do daily backups with bacula.
 Additionally I do a monthly complete backup of the sd-cards with clonezilla.
 I used to do this in a virtual machine, but for convinience I built this docker image.
 Now I just have to connect the sd-card reader to my server and backup the images to an nfs share.
+Works as well with any other drives ;)
 
 ## Usage
 
@@ -45,7 +46,23 @@ services:
       - data:/root
       - logs:/var/log
 ```
+otherwise use docker run command
 
+```
+docker run -d \
+        --name clonezilla \
+        --hostname clonezilla \
+        --restart unless-stopped \
+        --memory 128M \
+        --privileged=true \
+        -e TERM=xterm \
+        -e TZ=Europe/Berlin \
+        -v /dev:/dev \
+        -v clonezilla_data:/root \
+        -v clonezilla_logs:/var/log \
+        -v <BACKUPDIR>:/home/partimag:shared \
+        theniwo/clonezilla:latest
+```
 
 ### Start clonezilla
 
