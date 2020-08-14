@@ -92,7 +92,7 @@ The latest version will be updated regularly.
 
   - [X] SSH support
   - [ ] Include fail2ban
-  - [ ] Write docker run command
+  - [X] Write docker run command
   - [ ] Print logfile to stdout
   - [ ] Make a version for arm architecture
 
