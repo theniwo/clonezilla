@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-FRIENDLYNAME=Clonezilla
-CONTAINERNAME=clonezilla
-DOCKERREPO=theniwo
-DOCKERIMAGE=clonezilla
-DOCKERTAG=latest
-DIR=/root/Settings/Linux/scripts/docker
 PARAMETER="$1"
 
+SOURCE="${BASH_SOURCE[0]}"
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+    DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-cd $DIR/$CONTAINERNAME
+source $DIR/env
+
+cd $DIR/..
 
 function main(){
 	logger -i -t $CONTAINERNAME "Adding files"
@@ -40,6 +43,6 @@ function main(){
 
 if [[ $PARAMETER == "--force" ]] || [[ $PARAMETER == "-f" ]]; then
   echo "Forcing Commit"
-  date +%Y%m%d%H%M%S > $DIR/$CONTAINERNAME/CHANGEFILE
+  date +%Y%m%d%H%M%S > $DIR/../CHANGEFILE
 fi
 main
