@@ -74,6 +74,8 @@ or
 ssh root@IP -p 2222
 ```
 
+The root password is `toor`
+
 If you choose _device-image_ select _skip Use existing /home/partimag_ when asked for the  mountpoint.
 
 
