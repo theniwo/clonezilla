@@ -6,6 +6,7 @@ docker run -d \
 	--privileged=true \
 	-e TERM=xterm \
 	-e TZ=Europe/Berlin \
+	-p 2222:22 \
 	-v /dev:/dev \
 	-v clonezilla_data:/root \
 	-v clonezilla_logs:/var/log \
