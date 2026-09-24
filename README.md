@@ -100,7 +100,7 @@ The latest version will be updated regularly.
 
 **CONTACT**
 
-[disp@mailbox.org](mailto:disp@mailbox.org)
+no
 
 **LINKS**
 
